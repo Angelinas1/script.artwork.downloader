@@ -139,7 +139,7 @@ class local():
                             filename = (item['filename'] % int(season))
                         #log ('finding: %s'%filename) 
                         if filename in file_list[1]:
-                            url = os.path.join(media_item['artworkdir'][0], filename).encode('utf-8')
+                            url = os.path.join(media_item['artworkdir'][0], filename)
                             j += 1
                             generalinfo = '%s: %s  |  ' %( __localize__(32141), 'n/a')
                             generalinfo += '%s: %s  |  ' %( __localize__(32144), season)
@@ -168,8 +168,8 @@ class local():
                         #see if there's still the old <art_type>.ext and rename it
                         filename_old = item['filename']
                         if filename_old in file_list[1]:
-                            filename_new_full = os.path.join(media_item['artworkdir'][0], filename).encode('utf-8')
-                            filename_old_full = os.path.join(media_item['artworkdir'][0], filename_old).encode('utf-8')
+                            filename_new_full = os.path.join(media_item['artworkdir'][0], filename)
+                            filename_old_full = os.path.join(media_item['artworkdir'][0], filename_old)
                             log('Found: %s'%filename_old)
                             log('Renaming to: %s'%filename)
                             success = xbmcvfs.rename(filename_old_full,filename_new_full)
@@ -178,9 +178,9 @@ class local():
                                 force_update = True
                             else:
                                 log('Failed to rename : %s'%filename)
-                    #log('Searching for: %s'%filename)
+                    log('Now Searching for: %s' % filename)
                     if filename in file_list[1]:
-                        url = os.path.join(media_item['artworkdir'][0], filename).encode('utf-8')
+                        url = os.path.join(media_item['artworkdir'][0], filename)
                         j += 1
                         generalinfo = '%s: %s  |  ' %( __localize__(32141), 'n/a')
                         generalinfo += '%s: %s  |  ' %( __localize__(32143), 'n/a')

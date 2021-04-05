@@ -104,7 +104,7 @@ def extrafanart(data):
     limited = False
     reason = ''
     # Maximum number
-    if limit.get('limit_artwork') and data.get('downloaded_artwork') >= limit.get('limit_extrafanart_max'):
+    if data.get('downloaded_artwork') >= limit.get('limit_extrafanart_max'):
         reason = 'Max number extrafanart reached: %s' % limit.get('limit_extrafanart_max')
         limited = True
     # Minimal size
@@ -159,13 +159,6 @@ def seasonposter(data):
         reason = 'Max number seasonposter reached: %s' % limit.get('limit_artwork_max')
         limited = True
     # Minimal size
-    elif limit.get('limit_extrathumbs') and 'height' in data.get('artwork') and data.get('artwork')['height'] < int('169'):
-        reason = 'Size was to small: %s' % data.get('artwork')['height']
-        limited = True
-    # Correct language
-    elif not data.get('artwork')['language'] in [data.get('language')]:
-        reason = "Doesn't match preferred language: %s" % limit.get('limit_preferred_language')
-        limited = True
     return [limited, reason]
 
 def banner(data):
@@ -231,10 +224,6 @@ def characterart(data):
     if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
         reason = 'Max number characterart reached: %s' % limit.get('limit_artwork_max')
         limited = True
-    # Correct language
-    elif not data.get('artwork')['language'] in [data.get('language'), 'n/a']:
-        reason = "Doesn't match preferred language: %s" % limit.get('limit_preferred_language')
-        limited = True
     return [limited, reason]
     
 def landscape(data):
@@ -283,15 +272,6 @@ def discart(data):
     if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
         reason = 'Max number discart reached: %s' % limit.get('limit_artwork_max')
         limited = True
-    # Correct discnumber
-    elif not data.get('artwork')['discnumber'] == '1':
-        reason = "Doesn't match preferred discnumber: 1"
-        limited = True
-    # Correct discnumber
-    elif not data.get('artwork')['disctype'] == data.get('disctype'):
-        reason = "Doesn't match preferred disctype: %s" % data.get('disctype')
-        limited = True
-    # Correct language
     elif not data.get('artwork')['language'] in [data.get('language'), 'n/a']:
         reason = "Doesn't match preferred language: %s" % limit.get('limit_preferred_language')
         limited = True

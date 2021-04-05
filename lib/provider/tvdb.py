@@ -59,6 +59,7 @@ class TVDBProvider():
                     # process fanarts
                     if image.findtext('BannerType') == 'fanart':
                         info['art_type'] = 'fanart'
+                        info['art_type'] = 'extrafanart'
                     # process posters
                     elif image.findtext('BannerType') == 'poster':
                         info['art_type'] = 'poster'

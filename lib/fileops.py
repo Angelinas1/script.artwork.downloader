@@ -67,7 +67,7 @@ class fileops:
                 raise CreateDirectoryError(tempdir)
         
     def _copy(self, source, target):
-        return xbmcvfs.copy(source.encode("utf-8"), target.encode("utf-8"))
+        return xbmcvfs.copy(source, target)
 
     ### Delete file from all targetdirs
     def _delete_file_in_dirs(self, filename, targetdirs, reason, media_name = '' ):
@@ -115,7 +115,7 @@ class fileops:
 
     # copy file from temp to final location
     def _copyfile(self, sourcepath, targetpath, media_name = ''):
-        targetdir = os.path.dirname(targetpath).encode("utf-8")
+        targetdir = os.path.dirname(targetpath)
         if not self._exists(targetdir):
             if not self._mkdir(targetdir):
                 raise CreateDirectoryError(targetdir)

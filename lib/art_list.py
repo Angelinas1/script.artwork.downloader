@@ -70,7 +70,7 @@ def arttype_list():
                            'solo_enabled': 'true',
                            'gui_string': 32132,
                            'art_type': 'discart',
-                           'filename': 'disc.png'},
+                           'filename': 'discart.png'},
 
                           {'media_type': 'movie',
                            'bulk_enabled': setting.get('movie_landscape'),
@@ -211,6 +211,6 @@ def arttype_list():
                            'bulk_enabled': setting.get('musicvideo_discart'),
                            'solo_enabled': 'true',
                            'gui_string': 32132,
-                           'art_type': 'cdart',
-                           'filename': 'disc.png'}]
+                           'art_type': 'discart',
+                           'filename': 'discart.png'}]
     return available_arttypes

@@ -142,7 +142,7 @@ def clean_filename(filename):
 def save_nfo_file(data, target):
     try:
         # open source path for writing and write xmlSource
-        file_object = open(target.encode("utf-8"), "w")
+        file_object = open(target, "w")
         file_object.write(data)
         file_object.close()
         return True

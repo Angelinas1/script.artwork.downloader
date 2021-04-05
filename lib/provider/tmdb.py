@@ -74,6 +74,32 @@ class TMDBProvider():
                                                           __localize__(32145), item.get('width'), item.get('height')))})
             except Exception as e:
                 log( 'Problem report: %s' %str( e ), xbmc.LOGDEBUG )
+            # Get extrafanart
+            try:
+                for item in data['backdrops']:
+                    if int(item.get('vote_count')) >= 1:
+                        rating = float( "%.1f" % float( item.get('vote_average'))) #output string with one decimal
+                        votes = item.get('vote_count','n/a')
+                    else:
+                        rating = 'n/a'
+                        votes = 'n/a'
+                    image_list.append({'url': BASE_IMAGEURL + 'original' + item['file_path'],
+                                       'preview': BASE_IMAGEURL + 'w300' + item['file_path'],
+                                       'id': item.get('file_path').lstrip('/').replace('.jpg', ''),
+                                       'art_type': 'extrafanart',
+                                       'height': item.get('height'),
+                                       'width': item.get('width'),
+                                       'language': item.get('iso_639_1','n/a'),
+                                       'rating': rating,
+                                       'votes': votes,
+                                       # Create Gui string to display
+                                       'generalinfo': ('%s: %s  |  %s: %s  |  %s: %s  |  %s: %sx%s  |  ' 
+                                                       %( __localize__(32141), get_language(item.get('iso_639_1','n/a')).capitalize(),
+                                                          __localize__(32142), rating,
+                                                          __localize__(32143), votes,
+                                                          __localize__(32145), item.get('width'), item.get('height')))})
+            except Exception as e:
+                log( 'Problem report: %s' %str( e ), xbmc.LOGDEBUG )
             # Get thumbs
             try:
                 for item in data['backdrops']:

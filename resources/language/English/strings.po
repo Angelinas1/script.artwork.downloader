@@ -331,7 +331,7 @@ msgid "Extrathumbs"
 msgstr ""
 
 msgctxt "#32132"
-msgid "Disc Art"
+msgid "DiscArt"
 msgstr ""
 
 msgctxt "#32133"
