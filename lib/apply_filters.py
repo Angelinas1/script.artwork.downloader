@@ -82,18 +82,6 @@ def fanart(data):
     if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
         reason = 'Max number fanart reached: %s' % limit.get('limit_artwork_max')
         limited = True
-    # Minimal size
-    elif limit.get('limit_artwork') and 'height' in data.get('artwork') and (data.get('mediatype') == 'movie' and data.get('artwork')['height'] < limit.get('limit_size_moviefanart')) or (data.get('mediatype') == 'tvshow' and data.get('artwork')['height'] < limit.get('limit_size_tvshowfanart')):
-        reason = 'Size was to small: %s' % data.get('artwork')['height'] 
-        limited = True
-    # Minimal rating
-    elif limit.get('limit_artwork') and data.get('artwork')['rating']:
-        reason = 'Rating too low: %s' % data.get('artwork')['rating']
-        limited = True
-    # Has text       
-    elif limit.get('limit_artwork') and 'series_name' in data.get('artwork') and limit.get('limit_notext') and data.get('artwork')['series_name']:
-        reason = 'Has text'
-        limited = True
     # Correct language
     #elif not data.get('artwork')['language'] in [data.get('language'), 'n/a']:
     #    reason = "Doesn't match preferred language: %s" % limit.get('limit_preferred_language')
