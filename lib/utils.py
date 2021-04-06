@@ -36,7 +36,7 @@ else:
 try:
     import StorageServer
 except:
-    import storageserverdummy as StorageServer
+    from . import storageserverdummy as StorageServe
 
 ### import libraries
 from lib.script_exceptions import *
