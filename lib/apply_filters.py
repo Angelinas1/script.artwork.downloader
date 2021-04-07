@@ -63,6 +63,9 @@ def filter(art_type, mediatype, artwork, downloaded_artwork, language, disctype 
     elif data.get('art_type') == 'characterart':
         return characterart(data)
 
+    elif data.get('art_type') == 'keyart':
+        return keyart(data)
+        
     elif data.get('art_type') == 'landscape':
         return landscape(data)
 
@@ -218,6 +221,15 @@ def characterart(data):
     # Maximum number
     if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
         reason = 'Max number characterart reached: %s' % limit.get('limit_artwork_max')
+        limited = True
+    return [limited, reason]
+
+def keyart(data):
+    limited = False
+    reason = ''
+    # Maximum number
+    if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
+        reason = 'Max number keyart reached: %s' % limit.get('limit_artwork_max')
         limited = True
     return [limited, reason]
     

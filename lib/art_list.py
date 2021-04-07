@@ -29,6 +29,13 @@ def arttype_list():
                            'gui_string': 32128,
                            'art_type': 'poster',
                            'filename': 'poster.jpg'},
+                           
+                          {'media_type': 'movie',
+                           'bulk_enabled': setting.get('movie_keyart'),
+                           'solo_enabled': 'true',
+                           'gui_string': 32119,
+                           'art_type': 'keyart',
+                           'filename': 'keyart.jpg'},
 
                           {'media_type': 'movie',
                            'bulk_enabled': setting.get('movie_fanart'),
@@ -171,6 +178,13 @@ def arttype_list():
                            'art_type': 'characterart',
                            'filename': 'characterart.png'},
 
+                          {'media_type': 'tvshow',
+                           'bulk_enabled': setting.get('tvshow_keyart'),
+                           'solo_enabled': 'true',
+                           'gui_string': 32119,
+                           'art_type': 'keyart',
+                           'filename': 'keyart.jpg'},
+                           
                           # Musicvideo
                           {'media_type': 'musicvideo',
                            'bulk_enabled': setting.get('musicvideo_poster'),

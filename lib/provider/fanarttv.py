@@ -42,6 +42,7 @@ IMAGE_TYPES_MOVIES = ['clearlogo',
                       'movieart',
                       'moviedisc',
                       'hdmovieclearart',
+                      'movieposter',
                       'moviethumb',
                       'moviebanner']
 
@@ -53,6 +54,7 @@ IMAGE_TYPES_SERIES = ['clearlogo',
                       'seasonthumb',
                       'characterart',
                       'tvbanner',
+                      'tvposter',
                       'seasonposter',
                       'seasonfanart', 
                       'seasonbanner']
@@ -73,7 +75,9 @@ class FTV_TVProvider():
                     if art == value[0]:
                         for item in value[1]:
                             # Check on what type and use the general tag
-                            arttypes = {'clearlogo': 'clearlogo',
+                            arttypes = {'tvposter': 'poster',
+                                        'tvposter-alt': 'keyart',
+                                        'clearlogo': 'clearlogo',
                                         'hdtvlogo': 'clearlogo',
                                         'clearart': 'clearart',
                                         'hdclearart': 'clearart',
@@ -91,6 +95,8 @@ class FTV_TVProvider():
                                 size = 'SD'
                             else:
                                 size = ''
+                            if art == 'tvposter' and not get_language(item.get('lang')):
+                                arttypes[art] = 'keyart'
                             # Create GUI info tag
                             generalinfo = '%s: %s  |  ' %( __localize__(32141), get_language(item.get('lang')).capitalize())
                             if item.get('season'):
@@ -133,7 +139,9 @@ class FTV_MovieProvider():
                     if art == value[0]:
                         for item in value[1]:
                             # Check on what type and use the general tag
-                            arttypes = {'movielogo': 'clearlogo',
+                            arttypes = {'movieposter': 'poster',
+                                        'movieposter-alt': 'keyart',
+                                        'movielogo': 'clearlogo',
                                         'moviedisc': 'discart',
                                         'movieart': 'clearart',
                                         'hdmovielogo': 'clearlogo',
@@ -146,6 +154,8 @@ class FTV_MovieProvider():
                                 size = 'SD'
                             else:
                                 size = ''
+                            if art == 'movieposter' and not get_language(item.get('lang')):
+                                arttypes[art] = 'keyart'
                             # Create GUI info tag
                             generalinfo = '%s: %s  |  ' %( __localize__(32141), get_language(item.get('lang')).capitalize())
                             if item.get('disc_type'):

@@ -53,6 +53,7 @@ def get():
 
                'movie_enable':             __addon__.getSetting("movie_enable")           == 'true',
                'movie_poster':             __addon__.getSetting("movie_poster")           == 'true',
+               'movie_keyart':             __addon__.getSetting("movie_keyart")           == 'true',
                'movie_fanart':             __addon__.getSetting("movie_fanart")           == 'true',
                'movie_extrafanart':        __addon__.getSetting("movie_extrafanart")      == 'true',
                'movie_extrathumbs':        __addon__.getSetting("movie_extrathumbs")      == 'true',
@@ -64,6 +65,7 @@ def get():
 
                'tvshow_enable':            __addon__.getSetting("tvshow_enable")          == 'true',
                'tvshow_poster':            __addon__.getSetting("tvshow_poster")          == 'true',
+               'tvshow_keyart':            __addon__.getSetting("tvshow_keyart")          == 'true',
                'tvshow_seasonposter':      __addon__.getSetting("tvshow_seasonposter")    == 'true',
                'tvshow_seasonfanart':      __addon__.getSetting("tvshow_seasonfanart")    == 'true',
                'tvshow_fanart':            __addon__.getSetting("tvshow_fanart")          == 'true',
@@ -110,13 +112,13 @@ def check():
         setting = get()
         # Check if faulty setting in movie section
         if setting.get('movie_enable'):
-            if not setting.get('movie_poster') and not setting.get('movie_fanart') and not setting.get('movie_extrafanart') and not setting.get('movie_extrathumbs') and not setting.get('movie_logo') and not setting.get('movie_clearart') and not setting.get('movie_discart') and not setting.get('movie_landscape') and not setting.get('movie_banner'):
+            if not setting.get('movie_poster') and not setting.get('movie_keyart') and not setting.get('movie_fanart') and not setting.get('movie_extrafanart') and not setting.get('movie_extrathumbs') and not setting.get('movie_logo') and not setting.get('movie_clearart') and not setting.get('movie_discart') and not setting.get('movie_landscape') and not setting.get('movie_banner'):
                 check_movie = False
                 log('Setting check: No subsetting of movies enabled')
             else: check_movie = True
         # Check if faulty setting in tvshow section
         if setting.get('tvshow_enable'):
-            if not setting.get('tvshow_poster') and not setting.get('tvshow_seasonposter') and not setting.get('tvshow_fanart') and not setting.get('tvshow_extrafanart') and not setting.get('tvshow_seasonfanart') and not setting.get('tvshow_clearart') and not setting.get('tvshow_characterart') and not setting.get('tvshow_logo') and not setting.get('tvshow_showbanner') and not setting.get('tvshow_seasonbanner') and not setting.get('tvshow_landscape') and not setting.get('tvshow_seasonlandscape'):
+            if not setting.get('tvshow_poster') and not setting.get('tvshow_keyart') and not setting.get('tvshow_seasonposter') and not setting.get('tvshow_fanart') and not setting.get('tvshow_extrafanart') and not setting.get('tvshow_seasonfanart') and not setting.get('tvshow_clearart') and not setting.get('tvshow_characterart') and not setting.get('tvshow_logo') and not setting.get('tvshow_showbanner') and not setting.get('tvshow_seasonbanner') and not setting.get('tvshow_landscape') and not setting.get('tvshow_seasonlandscape'):
                 check_tvshow = False
                 log('Setting check: No subsetting of tv shows enabled')
             else: check_tvshow = True

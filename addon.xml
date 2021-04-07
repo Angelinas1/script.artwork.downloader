@@ -2,7 +2,7 @@
 <addon
     id="script.artwork.downloader"
     name="Artwork Downloader"
-    version="19.0.0"
+    version="19.0.1"
     provider-name="Martijn and Angelinas"
     >
   <requires>
@@ -83,7 +83,7 @@
     <platform>all</platform>
     <website></website>
     <source>https://github.com/Angelinas1/script.artwork.downloader</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=?????</forum>
+    <forum>http://forum.xbmc.org/showthread.php?tid=361925</forum>
     <email></email>
   </extension>
 </addon>
