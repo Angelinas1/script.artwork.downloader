@@ -202,7 +202,7 @@ class Main:
                               nolabel = __localize__(32027),
                               yeslabel = __localize__(32028)):
                     runcmd = os.path.join(__addonpath__, 'lib/viewer.py')
-                    xbmc.executebuiltin('XBMC.RunScript (%s,%s) '%(runcmd, 'downloadreport'))
+                    xbmc.executebuiltin('RunScript (%s,%s) '%(runcmd, 'downloadreport'))
         else:
             dialog_msg('okdialog',
                        message = __localize__(32010) + summary,
@@ -445,7 +445,7 @@ class Main:
 
                         # File naming
                         if art_item['art_type']   == 'extrafanart':
-                            artwork['filename'] = ('extrafanart%s.jpg'% str(limit_counter + 1))
+                            artwork['filename'] = ('fanart%s.jpg'% str(limit_counter + 1))
                         elif art_item['art_type'] == 'extrathumbs':
                             artwork['filename'] = (art_item['filename'] % str(limit_counter + 1))
                         elif art_item['art_type'] in ['seasonposter']:
