@@ -45,6 +45,9 @@ def filter(art_type, mediatype, artwork, downloaded_artwork, language, disctype 
     elif data.get('art_type') == 'seasonposter':
         return seasonposter(data)
 
+    elif data.get('art_type') == 'seasonfanart':
+        return seasonfanart(data)
+        
     elif data.get('art_type') == 'banner':
         return banner(data)
 
@@ -99,14 +102,6 @@ def extrafanart(data):
     elif limit.get('limit_artwork') and 'height' in data.get('artwork') and (data.get('mediatype') == 'movie' and data.get('artwork')['height'] < limit.get('limit_size_moviefanart')) or (data.get('mediatype') == 'tvshow' and data.get('artwork')['height'] < limit.get('limit_size_tvshowfanart')):
         reason = 'Size was to small: %s' % data.get('artwork')['height'] 
         limited = True
-    # Minimal rating
-    elif limit.get('limit_artwork') and data.get('artwork')['rating'] < limit.get('limit_extrafanart_rating'):
-        reason = 'Rating too low: %s' % data.get('artwork')['rating']
-        limited = True
-    # Has text
-    elif limit.get('limit_artwork') and 'series_name' in data.get('artwork') and limit.get('limit_notext') and data.get('artwork')['series_name']:
-        reason = 'Has text'
-        limited = True
     return [limited, reason]
 
 def extrathumbs(data):
@@ -119,6 +114,19 @@ def extrathumbs(data):
     # Minimal size
     elif limit.get('limit_extrathumbs') and 'height' in data.get('artwork') and data.get('artwork')['height'] < int('169'):
         reason = 'Size was to small: %s' % data.get('artwork')['height']
+        limited = True
+    return [limited, reason]
+    
+def seasonfanart(data):
+    limited = False
+    reason = ''
+    # Maximum number
+    if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
+        reason = 'Max number seasonfanart reached: %s' % limit.get('limit_artwork_max')
+        limited = True
+    # Has season
+    if not 'season' in data.get('artwork'):
+        reason = 'No season'
         limited = True
     return [limited, reason]
     
@@ -146,7 +154,10 @@ def seasonposter(data):
     if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
         reason = 'Max number seasonposter reached: %s' % limit.get('limit_artwork_max')
         limited = True
-    # Minimal size
+    # Has season
+    if not 'season' in data.get('artwork'):
+        reason = 'No season'
+        limited = True
     return [limited, reason]
 
 def banner(data):
@@ -172,10 +183,6 @@ def seasonbanner(data):
     # Has season
     if not 'season' in data.get('artwork'):
         reason = 'No season'
-        limited = True
-    # Correct language
-    elif not data.get('artwork')['language'] in [data.get('language')]:
-        reason = "Doesn't match preferred language: %s" % limit.get('limit_preferred_language')
         limited = True
     return [limited, reason]
     
@@ -234,9 +241,8 @@ def seasonlandscape(data):
     if data.get('downloaded_artwork') >= limit.get('limit_artwork_max'):
         reason = 'Max number seasonthumb reached: %s' % limit.get('limit_artwork_max')
         limited = True
-    # Correct language
-    elif not data.get('artwork')['language'] in [data.get('language'), 'n/a']:
-        reason = "Doesn't match preferred language: %s" % limit.get('limit_preferred_language')
+    if not 'season' in data.get('artwork'):
+        reason = 'No season'
         limited = True
     return [limited, reason]
 

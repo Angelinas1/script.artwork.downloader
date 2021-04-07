@@ -283,8 +283,12 @@ msgctxt "#32106"
 msgid "Use XBMC pre-caching [I](caches images to thumbnails folder while downloading) [/I]"
 msgstr ""
 
-#empty strings from id 32107 to 32120
-#Add-on messages: Image types id=32121 to 32140
+#empty strings from id 32107 to 32119
+#Add-on messages: Image types id=32120 to 32140
+
+msgctxt "#32120"
+msgid "Season Fanarts"
+msgstr ""
 
 msgctxt "#32121"
 msgid "Fanart"

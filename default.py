@@ -457,6 +457,15 @@ class Main:
                                 break
                             else:
                                 artwork['filename'] = (art_item['filename'] % int(artwork['season']))
+                        elif art_item['art_type'] in ['seasonfanart']:
+                            if artwork['season'] == '0':
+                                artwork['filename'] = "season-specials-poster.jpg"
+                            elif artwork['season'] == 'all':
+                                artwork['filename'] = "season-all-poster.jpg"
+                            elif artwork['season'] == 'n/a':
+                                break
+                            else:
+                                artwork['filename'] = (art_item['filename'] % int(artwork['season']))
                         elif art_item['art_type'] in ['seasonbanner']:
                             if artwork['season'] == '0':
                                 artwork['filename'] = "season-specials-banner.jpg"
@@ -530,7 +539,12 @@ class Main:
                                             if not self.fileops._exists(os.path.join(targetdir, artwork['filename'])):
                                                 missingfiles = True
                                     # Check if image already exist in database
-                                    elif not art_item['art_type'] in ['seasonlandscape','seasonbanner','seasonposter']:
+                                    elif not art_item['art_type'] in ['seasonlandscape','seasonbanner','seasonposter','seasonfanart']:
+                                        if setting['files_local']and not self.fileops._exists(artwork['localfilename']):
+                                            missingfiles = True
+                                        elif not artcheck.get(art_item['art_type']):
+                                            missingfiles = True
+                                    if art_item['art_type'] in ['seasonlandscape','seasonbanner','seasonposter','seasonfanart']:
                                         if setting['files_local']and not self.fileops._exists(artwork['localfilename']):
                                             missingfiles = True
                                         elif not artcheck.get(art_item['art_type']):
@@ -552,7 +566,7 @@ class Main:
                                             art_item['art_type'] in ['extrafanart', 'extrathumbs']):
                                             failed_items.append('[%s] %s %s' % (currentmedia['name'], art_item['art_type'], __localize__(32147)))
                             # Do some special check on season artwork
-                            if art_item['art_type'] == 'seasonlandscape' or art_item['art_type'] == 'seasonbanner' or art_item['art_type']   == 'seasonposter':
+                            if art_item['art_type'] == 'seasonlandscape' or art_item['art_type'] == 'seasonbanner' or art_item['art_type']   == 'seasonposter' or art_item['art_type']   == 'seasonfanart':
                                 # If already present in list set limit on 1 so it is skipped
                                 limit_counter = 0
                                 if artwork['season'] in seasonfile_presents:

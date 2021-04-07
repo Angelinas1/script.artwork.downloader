@@ -101,6 +101,35 @@ class local():
                         else:
                             missing_arttypes.append(item['art_type'])
 
+                elif item['art_type'] in ['seasonfanart']:
+                    for season in media_item['seasons']:
+                        if season == '0':
+                            filename = "season-specials-fanart.jpg"
+                        elif season == 'all':
+                            filename = "season-all-fanart.jpg"
+                        else:
+                            filename = (item['filename'] % int(season))
+                        #log ('finding: %s'%filename)
+                        if filename in file_list[1]:
+                            url = os.path.join(media_item['artworkdir'][0], filename)
+                            j += 1
+                            generalinfo = '%s: %s  |  ' %( __localize__(32141), 'n/a')
+                            generalinfo += '%s: %s  |  ' %( __localize__(32144), season)
+                            generalinfo += '%s: %s  |  ' %( __localize__(32143), 'n/a')
+                            generalinfo += '%s: %s  |  ' %( __localize__(32145), 'n/a')
+                            # Fill list
+                            image_list.append({'url': url,
+                                               'preview': url,
+                                               'id': filename,
+                                               'art_type': item['art_type'],
+                                               'size': '0',
+                                               'season': season,
+                                               'language': 'EN',
+                                               'votes': '0',
+                                               'generalinfo': generalinfo})
+                        else:
+                            missing_arttypes.append(item['art_type'])
+                            
                 elif item['art_type'] in ['seasonbanner']:
                     for season in media_item['seasons']:
                         if season == '0':

@@ -107,6 +107,13 @@ def arttype_list():
                            'gui_string': 32121,
                            'art_type': 'fanart',
                            'filename': 'fanart.jpg'},
+                           
+                          {'media_type': 'tvshow',
+                           'bulk_enabled': setting.get('tvshow_seasonfanart'),
+                           'solo_enabled': 'true',
+                           'gui_string': 32120,
+                           'art_type': 'seasonfanart',
+                           'filename': 'season%02d-fanart.jpg'},
 
                           {'media_type': 'tvshow',
                            'bulk_enabled': setting.get('tvshow_extrafanart'),
@@ -162,7 +169,7 @@ def arttype_list():
                            'solo_enabled': 'true',
                            'gui_string': 32127,
                            'art_type': 'characterart',
-                           'filename': 'character.png'},
+                           'filename': 'characterart.png'},
 
                           # Musicvideo
                           {'media_type': 'musicvideo',

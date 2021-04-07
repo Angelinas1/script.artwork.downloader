@@ -69,6 +69,9 @@ class TVDBProvider():
                     # process seasonposters
                     elif image.findtext('BannerType') == 'season' and image.findtext('BannerType2') == 'season':
                         info['art_type'] = 'seasonposter'
+                    # process seasonfanarts
+                    elif image.findtext('BannerType') == 'season' and image.findtext('BannerType2') == 'season':
+                        info['art_type'] = 'seasonfanart'
                     # process seasonbanners
                     elif image.findtext('BannerType') == 'season' and image.findtext('BannerType2') == 'seasonwide':
                         info['art_type'] = 'seasonbanner'

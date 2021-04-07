@@ -53,6 +53,8 @@ IMAGE_TYPES_SERIES = ['clearlogo',
                       'seasonthumb',
                       'characterart',
                       'tvbanner',
+                      'seasonposter',
+                      'seasonfanart', 
                       'seasonbanner']
 
 class FTV_TVProvider():
@@ -79,6 +81,8 @@ class FTV_TVProvider():
                                         'seasonthumb': 'seasonlandscape',
                                         'characterart': 'characterart',
                                         'tvbanner': 'banner',
+                                        'seasonposter': 'seasonposter',
+                                        'seasonfanart': 'seasonfanart',
                                         'seasonbanner': 'seasonbanner',
                                         }
                             if art in ['hdtvlogo', 'hdclearart']:
