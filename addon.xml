@@ -2,7 +2,7 @@
 <addon
     id="script.artwork.downloader"
     name="Artwork Downloader"
-    version="19.0.1"
+    version="19.0.2"
     provider-name="Martijn and Angelinas"
     >
   <requires>
@@ -15,7 +15,20 @@
   <extension point="xbmc.python.script"         library="default.py">
     <provides>executable</provides>
   </extension>
-  <extension point="xbmc.addon.metadata">
+	<extension point="kodi.context.item">
+		<menu id="kodi.core.main">
+			<menu id="kodi.core.manage">
+				<item library="context.py">
+					<label>ADM: $ADDON[script.artwork.downloader 32193]</label>
+					<visible>!Skin.HasSetting(disablecontext:script.artwork.downloader) + [StringCompare(ListItem.DBTYPE, movie) | StringCompare(ListItem.DBTYPE, tvshow) | StringCompare(ListItem.DBTYPE, musicvideo) | String.IsEqual(ListItem.DBTYPE, movie) | String.IsEqual(ListItem.DBTYPE, tvshow) | String.IsEqual(ListItem.DBTYPE, musicvideo)]</visible>
+				</item>
+				<item library="context_gui.py">
+					<label>ADM: $ADDON[script.artwork.downloader 32194]</label>
+					<visible>!Skin.HasSetting(disablecontext:script.artwork.downloader) + [StringCompare(ListItem.DBTYPE, movie) | StringCompare(ListItem.DBTYPE, tvshow) | StringCompare(ListItem.DBTYPE, musicvideo) | String.IsEqual(ListItem.DBTYPE, movie) | String.IsEqual(ListItem.DBTYPE, tvshow) | String.IsEqual(ListItem.DBTYPE, musicvideo)]</visible>
+				</item>
+			</menu>
+		</menu>
+	<extension point="xbmc.service" start="login" library="service.py" />
     <summary lang="be">Downloads Artwork for TV shows, Movies and Musicvideos in your library</summary>
     <summary lang="da">Downloader grafik til TV-serier, Film og Musikvideoer i dit bibliotek</summary>
     <summary lang="de">Lade Artworks fÃ¼r Filme, Serien und Musikvideos deiner Bibliothek herunter</summary>
