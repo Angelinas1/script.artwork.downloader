@@ -165,10 +165,8 @@ class TMDBProvider():
 def _search_movie(medianame,year=''):
     medianame = normalize_string(medianame)
     log('TMDB API search criteria: Title[''%s''] | Year[''%s'']' % (medianame,year) )
-    illegal_char = ' -<>:"/\|?*%'
-    for char in illegal_char:
-        medianame = medianame.replace( char , '+' ).replace( '++', '+' ).replace( '+++', '+' )
-
+    for illegal_char in [" ", "-", "<", ">", ":", "/", "?", "|"]:
+        medianame = medianame.replace(illegal_char, "+")
     search_url = 'http://api.themoviedb.org/3/search/movie?query=%s+%s&api_key=%s' %( medianame, year, API_KEY )
     tmdb_id = ''
     log('TMDB API search:   %s ' % search_url)
