@@ -45,12 +45,12 @@ msgid "Error downloading file"
 msgstr "Erreur durant le téléchargement du fichier"
 
 msgctxt "#32008"
-msgid "Searching for artwork"
-msgstr "Recherche d'artwork"
+msgid "Searching artwork for"
+msgstr "Recherche d'Artwork pour"
 
 msgctxt "#32009"
-msgid "Downloading"
-msgstr "Téléchargement"
+msgid "Processing artwork for"
+msgstr "Artwork en cours pour"
 
 msgctxt "#32010"
 msgid "Add-on aborted"
@@ -78,7 +78,7 @@ msgstr "Sélectionnez"
 
 msgctxt "#32016"
 msgid "Failed items"
-msgstr "Items manquants"
+msgstr "Éléments manquants"
 
 msgctxt "#32017"
 msgid "Cancelled"
@@ -129,8 +129,8 @@ msgid "Report"
 msgstr "Rapport"
 
 msgctxt "#32029"
-msgid "[I](After changes are made you must restart XBMC) [/I]"
-msgstr "[I](Vous devez redémarrer XBMC pour prendre en compte vos changements)[/I]"
+msgid "[I](After changes are made you must restart Kodi) [/I]"
+msgstr "[I](Vous devez redémarrer Kodi pour prendre en compte vos changements)[/I]"
 
 msgctxt "#32030"
 msgid "No provider ID found for looking up artwork"
@@ -174,7 +174,7 @@ msgstr "Afficher le rapport de téléchargement de la dernière exécution"
 
 msgctxt "#32040"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 msgctxt "#32051"
 msgid "Limit Artwork"
@@ -230,7 +230,11 @@ msgstr "[B]Options pour télécharger les Artworks Séries TV[/B]"
 
 msgctxt "#32083"
 msgid "-"
-msgstr "-"
+msgstr ""
+
+msgctxt "#32084"
+msgid "No valid library item selected"
+msgstr "Aucun élément sélectionné de la bibliothèque valide "
 
 msgctxt "#32091"
 msgid "Musicvideo"
@@ -253,16 +257,24 @@ msgid "Use local files"
 msgstr "Utiliser les fichiers locaux"
 
 msgctxt "#32106"
-msgid "Use XBMC pre-caching [I](caches images to thumbnails folder while downloading) [/I]"
-msgstr "Utiliser le pré-caching XBMC [I](stocke les images dans le répertoire des vignettes durant le téléchargement) [/I]"
+msgid "Use Kodi pre-caching [I](caches images to thumbnails folder while downloading) [/I]"
+msgstr "Utiliser le pré-caching Kodi [I](stocke les images dans le répertoire des vignettes durant le téléchargement) [/I]"
+
+msgctxt "#32119"
+msgid "KeyArt"
+msgstr ""
+
+msgctxt "#32120"
+msgid "Season Fanarts"
+msgstr ""
 
 msgctxt "#32121"
 msgid "Fanart"
-msgstr "Fanart"
+msgstr ""
 
 msgctxt "#32122"
 msgid "Extrafanart"
-msgstr "Extrafanart"
+msgstr ""
 
 msgctxt "#32123"
 msgid "Banner"
@@ -274,11 +286,11 @@ msgstr "Bannières de saison"
 
 msgctxt "#32125"
 msgid "ClearArt"
-msgstr "ClearArt"
+msgstr ""
 
 msgctxt "#32126"
-msgid "Logo"
-msgstr "Logo"
+msgid "ClearLogo"
+msgstr ""
 
 msgctxt "#32127"
 msgid "Character Art"
@@ -293,24 +305,27 @@ msgid "Season Posters"
 msgstr "Posters de saison"
 
 msgctxt "#32130"
-msgid "Thumb 16:9"
-msgstr "Vignettes 16:9"
+msgid "Landscape"
+msgstr ""
 
 msgctxt "#32131"
 msgid "Extrathumbs"
-msgstr "Extrathumbs"
+msgstr ""
 
 msgctxt "#32132"
-msgid "Disc Art"
-msgstr "Disc Art"
+msgid "DiscArt"
+msgstr ""
 
 msgctxt "#32133"
 msgid "Artwork"
-msgstr "Artwork"
+msgstr ""
 
 msgctxt "#32134"
-msgid "Season Thumbs 16:9"
-msgstr "Vignettes de saison 16:9"
+msgid "Season Landscapes"
+msgstr "Landscapes des saisons"
+
+#empty strings from id 32135 to 32140
+#Add-on messages:
 
 msgctxt "#32141"
 msgid "Language"
@@ -322,7 +337,7 @@ msgstr "Note"
 
 msgctxt "#32143"
 msgid "Votes"
-msgstr "Votes"
+msgstr ""
 
 msgctxt "#32144"
 msgid "Season"
@@ -349,8 +364,8 @@ msgid "No failed or missing items found"
 msgstr "Pas d'objets erronés ou manquants trouvés"
 
 msgctxt "#32150"
-msgid "add-on aborted because of XBMC shutting down"
-msgstr "add-on abandonné car XBMC s'arrête"
+msgid "add-on aborted because of Kodi shutting down"
+msgstr "add-on abandonné car Kodi s'arrête"
 
 msgctxt "#32151"
 msgid "add-on cancelled while searching for"
@@ -373,8 +388,8 @@ msgid "Please donate or contribute to the following sites to show your support:"
 msgstr "Soutenez ou contribuez à l'un de ces sites pour montrer votre engagement :"
 
 msgctxt "#32183"
-msgid "[I]www.xbmc.org [/I]"
-msgstr "[I]www.xbmc.org [/I]"
+msgid "[I]www.kodi.org [/I]"
+msgstr ""
 
 msgctxt "#32184"
 msgid "[I]fanart.tv [/I]"
@@ -382,11 +397,11 @@ msgstr "[I]fanart.tv [/I]"
 
 msgctxt "#32185"
 msgid "[I]www.thetvdb.com [/I]"
-msgstr "[I]www.thetvdb.com [/I]"
+msgstr ""
 
 msgctxt "#32186"
 msgid "[I]www.themoviedb.org [/I]"
-msgstr "[I]www.themoviedb.org [/I]"
+msgstr ""
 
 msgctxt "#32187"
 msgid "Add-on authors:"
@@ -394,20 +409,28 @@ msgstr "Auteurs de l'Add-on:"
 
 msgctxt "#32188"
 msgid "[I]paddycarey, Martijn Kaijser, putneyj [/I]"
-msgstr "[I]paddycarey, Martijn Kaijser, putneyj [/I]"
+msgstr ""
 
 msgctxt "#32189"
 msgid "Thanks to:"
 msgstr "Merci à :"
 
 msgctxt "#32190"
-msgid "Team XBMC and the authors of the other addons on which this was based."
-msgstr "L'équipe XBMC et les auteurs des autres add-ons sur lesquels celui-ci est basé."
+msgid "Team Kodi and the authors of the other addons on which this was based."
+msgstr "L'équipe Kodi et les auteurs des autres add-ons sur lesquels celui-ci est basé."
 
 msgctxt "#32191"
 msgid "[I]For bugs, requests or general questions visit the [/I]"
 msgstr "[I]Pour les erreurs, les demandes et les questions générales visitez le[/I]"
 
 msgctxt "#32192"
-msgid "[I]  Artwork Downloader thread on the XBMC forum. [/I]"
-msgstr "[I]sujet Artwork Downloader sur le forum XBMC.[/I]"
+msgid "[I]  Artwork Downloader thread on the Kodi forum. [/I]"
+msgstr ""
+
+msgctxt "#32193"
+msgid "Get Art - Solo Mode"
+msgstr "Télécharger les Artworks"
+
+msgctxt "#32194"
+msgid "Get Art - Gui Mode"
+msgstr "Télécharger une Artwork"
