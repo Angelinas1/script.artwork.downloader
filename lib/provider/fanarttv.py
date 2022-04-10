@@ -106,7 +106,7 @@ class FTV_TVProvider():
                                 generalinfo += '%s: %s  |  ' %( __localize__(32145), size)
                             # Fill list
                             image_list.append({'url': urllib.parse.quote(item.get('url'), ':/'),
-                                               'preview': item.get('url') + '/preview',
+                                               'preview': item.get('url'),
                                                'id': item.get('id'),
                                                'art_type': arttypes[art],
                                                'size': size,
@@ -165,7 +165,7 @@ class FTV_MovieProvider():
                             generalinfo += '%s: %s  |  ' %( __localize__(32143), item.get('likes'))
                             # Fill list
                             image_list.append({'url': urllib.parse.quote(item.get('url'), ':/'),
-                                               'preview': item.get('url') + '/preview',
+                                               'preview': item.get('url'),
                                                'id': item.get('id'),
                                                'art_type': arttypes[art],
                                                'size': size,

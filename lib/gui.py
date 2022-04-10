@@ -180,7 +180,7 @@ class dialog_select_UI(xbmcgui.WindowXMLDialog):
         for image in self.listing:
             listitem = xbmcgui.ListItem('%s' %(image['generalinfo']))
             listitem.setArt({'icon': image['preview']})
-            listitem.setLabel2(image['id'])
+            listitem.setLabel2(image['preview'])
             self.img_list.addItem(listitem)
         self.setFocus(self.img_list)
 
